@@ -47,7 +47,7 @@
                 if (word[i] == letter[0])
                 {
                     Console.WriteLine("Acertaste!");
-                    spaces = spaces.Remove(i, 1).Insert(i, letter);
+                    spaces = spaces.Remove(i, 1).Insert(i, letter.Substring(0,1));
                     score++;
                     flag = true;
                 }
