@@ -43,6 +43,40 @@
             if (Letters.Contains (letter))
             {
                 Console.WriteLine("Ya ingresaste esa letra");
+                count++;
+                if (count == 1)
+                {
+                    line2 = " ║   |";
+                }
+                if (count == 2)
+                {
+                    line3 = " ║   O";
+                }
+                if (count == 3)
+                {
+                    line4 = " ║  /|\\";
+                }
+                if (count == 4)
+                {
+                    line5 = " ║  /";
+                }
+                if (count == 5)
+                {
+                    line5 = " ║  / \\";
+                }
+                if (count == turns)
+                {
+                    Console.WriteLine(line1);
+                    Console.WriteLine(line2);
+                    Console.WriteLine(line3);
+                    Console.WriteLine(line4);
+                    Console.WriteLine(line5);
+                    Console.WriteLine(line6);
+                    Console.WriteLine(line7);
+                    Console.WriteLine(line8);
+                    Console.WriteLine("Perdiste!");
+                    Console.WriteLine("La palabra era: " + word);
+                }
             }else{
                 bool flag = false;
                 for (int i = 0; i < length; i++)
@@ -81,7 +115,6 @@
                 if (count == 5)
                 {
                     line5 = " ║  / \\";
-                
                 }
                 if (count == turns)
                 {
@@ -102,5 +135,6 @@
                 }
             }
         }
+        Console.WriteLine("Creado por: Cristopher Bustos Mejia");
     }
 }
