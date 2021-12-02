@@ -25,7 +25,7 @@
         {
             spaces += "_";
         }
-
+        List<string> Letters = new List<string>();
         while (count < turns && score < length){
             Console.WriteLine(line1);
             Console.WriteLine(line2);
@@ -40,60 +40,66 @@
             Console.WriteLine("Ingrese una letra:");
             string letter = Console.ReadLine().ToLower();
             
-            bool flag = false;
-            for (int i = 0; i < length; i++)
+            if (Letters.Contains (letter))
             {
-                
-                if (word[i] == letter[0])
+                Console.WriteLine("Ya ingresaste esa letra");
+            }else{
+                bool flag = false;
+                for (int i = 0; i < length; i++)
                 {
-                    Console.WriteLine("Acertaste!");
-                    spaces = spaces.Remove(i, 1).Insert(i, letter.Substring(0,1));
-                    score++;
-                    flag = true;
-                }
-            }
-            if (flag == false)
-            {
-                Console.WriteLine("Incorrecto!");
-                count++;
-            }
-            if (count == 1)
-            {
-               line2 = " ║   |";
-            }
-            if (count == 2)
-            {
-                line3 = " ║   O";
-            }
-            if (count == 3)
-            {
-                line4 = " ║  /|\\";
-            }
-            if (count == 4)
-            {
-                line5 = " ║  /";
-            }
-            if (count == 5)
-            {
-                line5 = " ║  / \\";
                 
-            }
-            if (count == turns)
-            {
-                Console.WriteLine(line1);
-                Console.WriteLine(line2);
-                Console.WriteLine(line3);
-                Console.WriteLine(line4);
-                Console.WriteLine(line5);
-                Console.WriteLine(line6);
-                Console.WriteLine(line7);
-                Console.WriteLine(line8);
-                Console.WriteLine("Perdiste!");
-                Console.WriteLine("La palabra era: " + word);
-            }
-            if (score == length)
-            {
-                Console.WriteLine("Ganaste!");
+                    if (word[i] == letter[0])
+                    {
+                        Console.WriteLine("Acertaste!");
+                        spaces = spaces.Remove(i, 1).Insert(i, letter.Substring(0,1));
+                        score++;
+                        flag = true;
+                        Letters.Add(letter);
+                    }
+                }
+                if (flag == false)
+                {
+                    Console.WriteLine("Incorrecto!");
+                    count++;
+                }
+                if (count == 1)
+                {
+                    line2 = " ║   |";
+                }
+                if (count == 2)
+                {
+                    line3 = " ║   O";
+                }
+                if (count == 3)
+                {
+                    line4 = " ║  /|\\";
+                }
+                if (count == 4)
+                {
+                    line5 = " ║  /";
+                }
+                if (count == 5)
+                {
+                    line5 = " ║  / \\";
+                
+                }
+                if (count == turns)
+                {
+                    Console.WriteLine(line1);
+                    Console.WriteLine(line2);
+                    Console.WriteLine(line3);
+                    Console.WriteLine(line4);
+                    Console.WriteLine(line5);
+                    Console.WriteLine(line6);
+                    Console.WriteLine(line7);
+                    Console.WriteLine(line8);
+                    Console.WriteLine("Perdiste!");
+                    Console.WriteLine("La palabra era: " + word);
+                }
+                if (score == length)
+                {
+                    Console.WriteLine("Ganaste!");
+                }
             }
         }
     }
